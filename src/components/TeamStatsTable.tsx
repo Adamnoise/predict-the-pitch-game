@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { teams } from '@/lib/data';
 
@@ -15,7 +14,6 @@ type TableRow = {
 };
 
 const TeamStatsTable = () => {
-  // Table data for Premier League standings
   const tableData: TableRow[] = [
     { position: 1, team: 'Manchester City', teamShort: 'MCI', teamColor: 'bg-team-man-city', w: 18, d: 3, l: 2, pts: 57, teamId: 'man-city' },
     { position: 2, team: 'West Ham Utd', teamShort: 'WHU', teamColor: 'bg-team-west-ham', w: 14, d: 6, l: 2, pts: 48, teamId: 'west-ham' },
@@ -25,8 +23,8 @@ const TeamStatsTable = () => {
   ];
 
   return (
-    <div>
-      <div className="flex items-center text-xs font-medium text-gray-400 px-2 mb-2">
+    <div className="glass p-4 rounded-2xl">
+      <div className="flex items-center text-xs font-medium text-gray-400 px-2 mb-4">
         <div className="w-8 text-center">#</div>
         <div className="flex-1">Team</div>
         <div className="w-8 text-center">W</div>
@@ -42,13 +40,13 @@ const TeamStatsTable = () => {
         return (
           <div 
             key={i}
-            className={`flex items-center py-3 px-2 rounded-lg ${
-              row.position === 7 ? 'bg-red-900/40' : row.position <= 4 ? 'bg-secondary' : ''
-            } mb-2 hover:bg-secondary/80 transition-colors cursor-pointer`}
+            className={`clay flex items-center py-3 px-2 rounded-xl ${
+              row.position === 7 ? 'bg-red-900/20' : row.position <= 4 ? 'bg-primary/10' : ''
+            } mb-3 hover:scale-105 transition-all duration-300 cursor-pointer`}
           >
             <div className="w-8 text-center font-bold">{row.position}</div>
             <div className="flex-1 flex items-center">
-              <div className="w-6 h-6 rounded-full flex items-center justify-center mr-2 overflow-hidden">
+              <div className="w-6 h-6 rounded-full flex items-center justify-center mr-2 overflow-hidden clay">
                 {badge ? (
                   <img src={badge} alt={row.team} className="w-full h-full object-contain" />
                 ) : (

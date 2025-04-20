@@ -15,7 +15,7 @@ const BottomNav = () => {
   ];
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-[#16182B] border-t border-[#242747] py-1 z-40">
+    <div className="fixed bottom-4 left-4 right-4 glass rounded-2xl z-40 mx-auto max-w-md">
       <div className="flex justify-around items-center">
         {navItems.map((item) => {
           const isActive = path === item.path || path.startsWith(`${item.path}/`);
@@ -23,15 +23,15 @@ const BottomNav = () => {
             <Link
               key={item.path}
               to={item.path}
-              className={`flex flex-col items-center justify-center py-2 px-3 relative ${
+              className={`flex flex-col items-center justify-center py-3 px-3 rounded-xl transition-all duration-300 ${
                 isActive 
-                  ? 'text-primary after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-1/2 after:h-0.5 after:bg-primary after:rounded-full'
-                  : 'text-gray-500'
+                  ? 'clay text-primary scale-110' 
+                  : 'text-gray-500 hover:text-primary/80'
               }`}
             >
               <item.icon 
                 size={24} 
-                className={`${isActive ? 'text-primary' : 'text-gray-500'} ${isActive ? 'animate-pulse-light' : ''}`} 
+                className={`${isActive ? 'text-primary' : 'text-gray-500'} transition-colors duration-300`} 
               />
               <span className={`text-xs mt-1 ${isActive ? 'font-medium' : ''}`}>{item.label}</span>
             </Link>
